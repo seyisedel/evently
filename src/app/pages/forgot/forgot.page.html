@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-back-button mode="md" slot="start" icon="chevron-back" defaultHref="/login">
+        </ion-back-button>
+        <ion-title mode="ios">{{'forgotPass.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="forgot">
+        <div class="lock">
+            <img src="../../../assets/general/forgot.png"><br>
+            <div class="ion-text-start">
+                <ion-label position="stacked">{{'forgotPass.email' | translate}}</ion-label>
+                <ion-input formControlName="email" type="email" placeholder="{{'forgotPass.email' | translate}}" required></ion-input>
+                <p class="err-msg" err *ngIf="forgot.controls.email.hasError('required') && forgot.controls.email.touched">
+                    {{'forgotPass.emailR' | translate}}
+                </p>
+                <p class="err-msg" err *ngIf="forgot.controls.email.hasError('email') && forgot.controls.email.touched && !forgot.controls.email.hasError('required')" color="danger">
+                    {{'forgotPass.re' | translate}}
+                </p>
+
+                <ion-button mode="md" [disabled]="!forgot.valid" (click)="setNew()" expand="full" color="var(--red-color)">{{'forgotPass.v' | translate}}</ion-button>
+            </div>
+        </div>
+    </form>
+    <div class="bottom">
+        <p>{{'forgotPass.plx' | translate}}</p>
+    </div>
+</ion-content>

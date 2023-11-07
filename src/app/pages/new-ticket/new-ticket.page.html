@@ -1,0 +1,81 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start" mode="md">
+            <ion-back-button icon="chevron-back" defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'newTicket.tickets' | translate}}</ion-title>
+        <ion-buttons slot="end" class="ion-no-margin tn" mode="md">
+            <ion-button class="ion-no-margin">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="ion-no-margin tn" mode="md">
+            <ion-button class="ion-no-margin" (click)="go()">
+                <ion-icon slot="icon-only" src="../assets/svg_icon/Group 4929.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="input-div">
+        <p>{{'newTicket.name' | translate}}</p>
+        <ion-input [(ngModel)]="name" placeholder="{{'newTicket.place1' | translate}}"></ion-input>
+        <span>{{name?.length}}</span>
+    </div>
+    <div class="input-div">
+        <p>{{'newTicket.de' | translate}}</p>
+        <ion-input [(ngModel)]="desc" placeholder="{{'newTicket.op' | translate}}"></ion-input>
+        <span>{{desc?.length}}</span>
+    </div>
+    <div class="input-div">
+        <p>{{'newTicket.how' | translate}}</p>
+        <ion-input [(ngModel)]="quantity" placeholder="0" type="tel"></ion-input>
+    </div>
+    <ion-row class="ion-padding-top" *ngIf="ticket_type == 'paid'">
+        <ion-col size="12">
+            <div class="input-div">
+                <p> {{'newTicket.price' | translate}}</p>
+                <ion-input placeholder=" {{'newTicket.price' | translate}}" [(ngModel)]="price" type="tel"></ion-input>
+            </div>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+        <ion-col size="6">
+            <div class="input-div">
+                <p> {{'newTicket.salesStart' | translate}}</p>
+                <h5 (click)="salesStart()">{{salesStartt}}
+                    <ion-icon name="chevron-down"></ion-icon>
+                </h5>
+            </div>
+        </ion-col>
+        <ion-col size="6">
+            <div class="input-div">
+                <p> {{'newTicket.salesEnd' | translate}}</p>
+                <h5 (click)="salesEnd()">{{salesEndd | slice:0:9}}<span *ngIf="salesEndd?.length > 9">..</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </h5>
+            </div>
+        </ion-col>
+    </ion-row>
+
+    <ion-item mode="ios" class="ion-no-padding" lines="none" *ngIf="salesStartt == 'On date & time'">
+        <ion-label> {{'newTicket.das' | translate}}</ion-label>
+        <ion-datetime displayFormat="D MMM YYYY H:mm" min="{{current2}}" (ionChange)="startTimeCheck($event)" max="2080" value="{{todays}}"></ion-datetime>
+    </ion-item>
+
+    <ion-item mode="ios" class="ion-no-padding" lines="none" *ngIf="salesEndd == 'On date & time'">
+        <ion-label> {{'newTicket.endD' | translate}}</ion-label>
+        <ion-datetime displayFormat="D MMM YYYY H:mm" (ionChange)="endTimeCheck($event)" min="{{current2}}" max="2080" value="{{todays}}"></ion-datetime>
+    </ion-item>
+    <div class="input-div ion-margin-top">
+        <p> {{'newTicket.vis' | translate}}</p>
+        <h5 (click)="visibility()">{{visibilitys}}
+            <ion-icon name="chevron-down"></ion-icon>
+        </h5>
+    </div>
+    <ion-item mode="ios" class="ion-no-padding ion-margin-top" lines="none">
+        <ion-label> {{'newTicket.tick' | translate}}</ion-label>
+        <ion-input placeholder=" {{'newTicket.tick' | translate}}" [(ngModel)]="ticket_per_order"></ion-input>
+    </ion-item>
+</ion-content>

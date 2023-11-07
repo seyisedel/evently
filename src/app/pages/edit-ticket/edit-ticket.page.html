@@ -1,0 +1,61 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button icon="chevron-back" defaultHref="/tickets"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'newTicket.edit' | translate}}</ion-title>
+        <ion-buttons slot="end" class="ion-no-margin tn" mode="md">
+            <ion-button class="ion-no-margin" (click)="go()">
+                <ion-icon slot="icon-only" src="../assets/svg_icon/Group 4929.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="input-div">
+        <p>{{'newTicket.name' | translate}}</p>
+        <ion-input [(ngModel)]="name" value="{{data?.name}}" placeholder="{{'newTicket.place1' | translate}}"></ion-input>
+        <span>{{data?.name?.length}}</span>
+    </div>
+    <div class="input-div">
+        <p>{{'newTicket.de' | translate}}</p>
+        <ion-input [(ngModel)]="description" value="{{data?.description}}" placeholder="{{'newTicket.op' | translate}}"></ion-input>
+        <span>{{data?.description?.length}}</span>
+    </div>
+    <div class="input-div">
+        <p>{{'newTicket.how' | translate}}</p>
+        <ion-input [(ngModel)]="quantity" placeholder="0" value="{{data?.quantity}}" type="tel"></ion-input>
+    </div>
+    <div class="input-div">
+        <p>{{'newTicket.price' | translate}}</p>
+        <ion-input [(ngModel)]="price" placeholder="0" value="{{data?.price}}" type="tel"></ion-input>
+    </div>
+    <div class="input-div ion-margin-top">
+        <p>{{'newTicket.type' | translate}}</p>
+        <ion-input [(ngModel)]="type" placeholder="{{'newTicket.type' | translate}}"></ion-input>
+    </div>
+    <ion-item mode="ios" class="ion-no-padding" lines="none">
+        <ion-label>{{'newTicket.das' | translate}}</ion-label>
+        <ion-datetime displayFormat="D MMM YYYY H:mm" min="{{current2}}" (ionChange)="startTimeCheck($event)" max="2080" value="{{data?.start_time}}"></ion-datetime>
+    </ion-item>
+
+    <ion-item mode="ios" class="ion-no-padding" lines="none">
+        <ion-label>{{'newTicket.endD' | translate}}</ion-label>
+        <ion-datetime displayFormat="D MMM YYYY H:mm" (ionChange)="endTimeCheck($event)" min="{{current2}}" max="2080" value="{{data?.end_time}}"></ion-datetime>
+    </ion-item>
+
+    <div class="input-div ion-margin-top">
+        <p>{{'newTicket.vis' | translate}}</p>
+        <h5 (click)="visibility()">
+            {{visibilitys}}
+            <ion-icon name="chevron-down"></ion-icon>
+        </h5>
+    </div>
+
+    <ion-item mode="ios" class="ion-no-padding ion-margin-top" lines="none">
+        <ion-label>{{'newTicket.tick' | translate}}</ion-label>
+        <ion-input placeholder="{{'newTicket.tick' | translate}} Per Order" [(ngModel)]="ticket_per_order" value="{{data?.ticket_per_order}}"></ion-input>
+    </ion-item>
+
+</ion-content>

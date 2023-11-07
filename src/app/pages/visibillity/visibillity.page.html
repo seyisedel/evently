@@ -1,0 +1,9 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title mode="md">{{'models.visi' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+    <p *ngFor="let item of text" (click)="p(item?.name)" [ngClass]="item?.name == select ? 'active' : 'non-active'">{{item?.name}}</p>
+</ion-content>

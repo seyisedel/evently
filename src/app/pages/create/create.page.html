@@ -1,0 +1,150 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start" mode="md">
+            <ion-back-button defaultHref="/home" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'create.title' | translate}}</ion-title>
+        <!--  <ion-buttons slot="end" mode="md">
+            <ion-button>
+                <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons> -->
+    </ion-toolbar>
+    <div class="progress">
+        <ion-row class="ion-no-padding">
+            <ion-col size="4">
+                <hr *ngIf="default === 'Setup'">
+            </ion-col>
+            <ion-col size="4">
+                <hr *ngIf="default2 === 'Save'">
+            </ion-col>
+            <ion-col size="4" class="ion-no-padding">
+                <hr *ngIf="default3 == 'Done'">
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-header>
+<ion-content class="ion-padding">
+    <div [hidden]="default2 == 'Save'">
+        <h1 class="heading">{{'create.setup' | translate}}</h1>
+        <div class="input-div">
+            <p>{{'create.eventtitle' | translate}}</p>
+            <ion-input [(ngModel)]="name" placeholder="{{'create.placeholderTitle' | translate}}"></ion-input>
+        </div>
+        <div class="input-div di">
+            <p>{{'create.descr' | translate}}</p>
+            <ion-textarea class="ion-no-padding" [(ngModel)]="length" rows="5" cols="20" placeholder="{{'create.placeholderDescrine' | translate}}"></ion-textarea>
+        </div>
+        <p class="ion-float-right length">{{length?.length}}</p>
+        <div class="camera ion-margin-top" (click)="albumSheet()">
+            <img src="{{image}}" alt="">
+
+            <h2>{{'create.pic' | translate}}</h2>
+        </div>
+        <ion-footer class="ion-no-border">
+            <ion-toolbar class="ion-no-padding">
+                <ion-button class="next ion-float-right" (click)="saveData()" [disabled]="name == '' || length == '' || imagePreview == ''">
+                    {{'create.btn1' | translate}}
+                    <ion-icon src="../../../assets/svg_icon/right-arrow.svg"></ion-icon>
+                </ion-button>
+            </ion-toolbar>
+        </ion-footer>
+    </div>
+
+    <div *ngIf="default2 == 'Save'" [hidden]="default3 == 'Done'">
+        <div>
+            <h1 class="heading">{{'create.set' | translate}}</h1>
+            <p class="start">{{'create.from' | translate}}</p>
+            <ion-row>
+                <ion-col size="6" (click)="presentModal('start')">
+                    <p>
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <span *ngIf="date == ''">{{'create.date' | translate}}</span>
+                        <span *ngIf="date !== ''">{{date}}</span>
+                    </p>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item class="ion-no-padding" lines="none">
+                        <ion-icon class="time" name="time-outline"></ion-icon>
+                        <ion-datetime placeholder="{{'create.time' | translate}}" displayFormat="h:mm A" [(ngModel)]="startDate" pickerFormat="hh:mm a" (ionChange)="check($event)"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+        </div>
+        <div class="end">
+            <p class="start">{{'create.and' | translate}}</p>
+            <ion-row>
+                <ion-col size="6" (click)="presentModal('end')">
+                    <p>
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <span *ngIf="endDate == ''">{{'create.date' | translate}}</span>
+                        <span *ngIf="endDate !== ''">{{endDate}}</span>
+                    </p>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-item class="ion-no-padding" lines="none">
+                        <ion-icon class="time" name="time-outline"></ion-icon>
+                        <ion-datetime placeholder="{{'create.time' | translate}}" displayFormat="h:mm A" pickerFormat="hh:mm a" (ionChange)="check2($event)"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </div>
+        <form [formGroup]="form">
+            <ion-item class="ion-no-padding">
+                <tag-input formControlName="tags" [separatorKeyCodes]="[32]"></tag-input>
+            </ion-item>
+        </form>
+        <ion-footer class="ion-no-border">
+            <ion-toolbar class="ion-no-padding">
+
+                <ion-button class="next ion-float-right" (click)="saveData2(form.value)" [disabled]="startDate == '' || endDate == '' || startTime == '' || endTime == ''">
+                    {{'create.btn1' | translate}}
+                    <ion-icon src="../../../assets/svg_icon/right-arrow.svg"></ion-icon>
+                </ion-button>
+            </ion-toolbar>
+        </ion-footer>
+    </div>
+
+    <div *ngIf="default3 == 'Done'">
+        <div>
+            <h1 class="heading">{{'create.which' | translate}}</h1>
+            <p>{{'create.typeEve' | translate}}</p>
+            <div class="type" (click)="typeModal()">
+                <ion-icon class="pin" src="../../../assets/svg_icon/pin.svg"></ion-icon>
+                <p>{{test}}</p>
+                <ion-icon src="../../../assets/svg_icon/Icon ionic-ios-arrow-back.svg"></ion-icon>
+            </div>
+            <div *ngIf="test == 'Venue'">
+                <p class="enter">{{'create.loca' | translate}}</p>
+                <input autofocus="true" ngx-google-places-autocomplete placeholder="Search for a Location" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"></div>
+
+            <p class="p">{{'create.cat' | translate}}</p>
+            <div class="type" (click)="selectCat()">
+                <p>{{cat}}</p>
+                <ion-icon src="../../../assets/svg_icon/Icon ionic-ios-arrow-back.svg"></ion-icon>
+            </div>
+
+            <p class="p">{{'create.pri' | translate}}</p>
+            <div class="type" (click)="privacyPoli()">
+                <p>{{privacy}}</p>
+                <ion-icon src="../../../assets/svg_icon/Icon ionic-ios-arrow-back.svg"></ion-icon>
+            </div>
+
+            <div class="input-div ion-margin-top">
+                <p>{{'create.howManypeop' | translate}}</p>
+                <ion-input placeholder="{{'create.peoplePlceholder' | translate}}" [(ngModel)]="people" type="tel"></ion-input>
+            </div>
+
+        </div>
+
+        <ion-footer class="ion-no-border">
+            <ion-toolbar class="ion-no-padding">
+                <ion-button class="next3 ion-float-right" (click)="go()">
+                    {{'create.con' | translate}}
+                    <ion-icon src="../../../assets/svg_icon/right-arrow.svg"></ion-icon>
+                </ion-button>
+            </ion-toolbar>
+        </ion-footer>
+    </div>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-content class="ion-padding ">
+    <div class="top">
+        <h1>{{'login.hello' | translate}}!,</h1>
+        <p>{{'login.desc' | translate}}</p>
+    </div>
+    <form [formGroup]="myForm" (ngSubmit)="login()">
+        <div class="bottom-container">
+            <div class="input-div">
+                <p>{{'login.email' | translate}}</p>
+                <ion-input formControlName="email" class="email-input" name="email" placeholder="{{'login.placeEmail' | translate}}" type="email"></ion-input>
+            </div>
+            <p class="err-msg" err *ngIf="myForm.controls.email.hasError('required') && myForm.controls.email.touched">
+                {{'login.emailRe' | translate}}
+            </p>
+            <p class="err-msg" err *ngIf="myForm.controls.email.hasError('email') && myForm.controls.email.touched && !myForm.controls.email.hasError('required')" color="danger">
+                {{'login.emailIn' | translate}}
+            </p>
+
+            <div class="input-div">
+                <p>{{'login.password' | translate}}</p>
+                <ion-input formControlName="password" placeholder="{{'login.passPlace' | translate}}" name="password" type="password"></ion-input>
+            </div>
+            <p class="err-msg" err *ngIf="myForm.controls.password.hasError('required') && myForm.controls.password.touched">
+                {{'login.passRe' | translate}}
+            </p>
+            <p class="err-msg" err *ngIf="myForm.controls.password.hasError('minlength') && myForm.controls.password.touched" color="danger">
+                {{'login.passGrater' | translate}}
+            </p>
+
+            <ion-button mode="md" class="get ion-text-capitalize" [disabled]="!myForm.valid" expands="full" type="submit" color="var(--theme-color)">Get Started</ion-button>
+            <span class="ion-float-right span" (click)="forgot()">{{'login.forgot' | translate}} </span>
+            <p class="or">{{'login.or' | translate}}</p>
+
+            <p class="last">{{'login.dot' | translate}}<span (click)="signUp()"> {{'login.signUp' | translate}}</span> </p>
+        </div>
+    </form>
+</ion-content>

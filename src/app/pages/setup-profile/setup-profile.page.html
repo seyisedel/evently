@@ -1,0 +1,25 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/login" [icon]="icon"></ion-back-button>
+        </ion-buttons>
+        <ion-text slot="end" (click)="login()">{{'setupProfile.skip' | translate}}</ion-text>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <h1 class="heading">{{'setupProfile.setupProdile' | translate}}</h1>
+    <p class="tell">{{'setupProfile.who' | translate}}</p>
+    <div class="bottom">
+        <div class="camera" (click)="albumSheet()">
+            <img src="{{images}}" alt="" *ngIf="image==''">
+            <img src="{{image}}" *ngIf="image !== ''">
+            <h2>{{'setupProfile.select' | translate}}</h2>
+        </div>
+        <div class="input-div">
+            <p>{{'setupProfile.orga' | translate}}</p>
+            <ion-input [(ngModel)]="name" placeholder="{{'setupProfile.place' | translate}}"></ion-input>
+        </div>
+        <ion-button mode="md" class="get" expands="full" (click)="create()" color="var(--theme-color)">{{'setupProfile.con' | translate}}</ion-button>
+    </div>
+</ion-content>

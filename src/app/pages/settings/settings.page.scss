@@ -1,0 +1,22 @@
+    ion-header {
+        ion-toolbar {
+            --background: var(--theme-color);
+            color: var(--white-color);
+            --min-height: 68px;
+        }
+    }
+    
+    ion-content {
+        ion-item {
+            font-family: 'eco-medium';
+            font-size: 18px;
+            border-bottom: 2px solid #dddddd;
+            --padding-bottom: 8px;
+            margin-bottom: 13px;
+        }
+        /*  ion-item:last-child {
+        color: var(--red) !important;
+        border: none !important;
+    }
+} */
+    }

@@ -1,0 +1,100 @@
+ion-header {
+    ion-toolbar {
+        --background: #EDEEF1;
+        --padding-start: 15px;
+        --padding-top: 51px;
+        --padding-bottom: 31px;
+        img {
+            border-radius: 50%;
+            height: 85px;
+            width: 85px;
+        }
+        h4 {
+            font-size: 25px;
+            font-family: 'eco-medium';
+            color: var(--black-color);
+            margin: 0px;
+            text-transform: capitalize;
+        }
+        p {
+            margin: 0px;
+            font-size: 14px;
+            color: var(--placeholder-color);
+        }
+        ion-buttons {
+            margin-top: 74px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            margin-right: 0px;
+            height: 56px;
+            width: 56px;
+            ion-button {
+                margin-top: 14px;
+                height: 50px;
+                width: 50px;
+                ion-icon {
+                    font-size: 54px;
+                    color: var(--placeholder-color);
+                }
+            }
+        }
+    }
+}
+
+ion-content {
+    --offset-top: 0px;
+    --offset-bottom: 0px;
+    --padding-start: 19px;
+    --padding-end: 19px;
+    --padding-top: 19px;
+    ion-icon {
+        font-size: 22px;
+        margin-bottom: 9px;
+    }
+    ion-menu-toggle:focus {
+        outline: none !important;
+    }
+    ion-menu-toggle:last-child {
+        margin: 0 !important;
+    }
+    ion-menu-toggle {
+        margin-bottom: 20px;
+        display: flex;
+        border-bottom: 2px solid #eeeeee;
+        padding-bottom: 5px;
+        ion-label {
+            padding-bottom: 4px;
+            p {
+                font-size: 15px;
+                font-family: 'eco-medium';
+                color: var(--black-color);
+                margin-left: 17px;
+            }
+            .right {
+                margin-right: 17px;
+            }
+        }
+    }
+    .right {
+        margin-right: 17px;
+    }
+    ion-item {
+        margin-top: -11px;
+        ion-label {
+            padding-bottom: 2px;
+            p {
+                font-size: 15px;
+                font-family: 'eco-medium';
+                color: var(--black-color);
+                margin-left: 17px;
+            }
+        }
+    }
+    .version {
+        font-size: 12px;
+        font-family: 'eco-medium';
+        color: var(--black-color);
+        position: relative;
+        bottom: 0%;
+    }
+}

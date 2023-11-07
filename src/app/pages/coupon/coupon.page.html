@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button>
+                <img src="../../../assets/svg_icon/menu.svg">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'coupon.name' | translate}}</ion-title>
+        <ion-buttons slot="end" mode="md">
+            <ion-button (click)="add()">
+                <ion-icon slot="icon-only" name="add-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ng-container>
+        <div class="coupon-div ion-margin-bottom" *ngFor="let item of data">
+            <p>{{item?.name}} <span class="ion-float-right">
+      <ion-icon name="trash" (click)="delete(item.id)"></ion-icon>
+      <ion-icon src="../../../assets/svg_icon/pencil2 - Copy.svg" (click)="edit(item.id)"></ion-icon>
+    </span></p>
+            <h4>{{item?.event?.name}}</h4>
+            <h2>{{item?.start_date}} <span>{{'coupon.to' | translate}}</span> {{item?.end_date}}</h2>
+            <h6>{{'coupon.rema' | translate}} : {{item?.max_use}} {{'coupon.times' | translate}} <span class="ion-float-right">{{item?.discount}}%</span></h6>
+            <hr>
+            <p>{{item?.description}}</p>
+        </div>
+    </ng-container>
+
+    <div *ngIf="data?.length == 0" no-data>
+        <img src="../../../assets/no-data.png">
+    </div>
+</ion-content>

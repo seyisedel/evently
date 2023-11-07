@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.82" height="16" viewBox="0 0 12.82 16">
+  <g id="pin" transform="translate(-50.885)">
+    <g id="Group_4917" data-name="Group 4917" transform="translate(54.324 3.439)">
+      <g id="Group_4916" data-name="Group 4916" transform="translate(0)">
+        <path id="Path_80" data-name="Path 80" d="M163.917,110.062a2.97,2.97,0,1,0,2.97,2.97A2.974,2.974,0,0,0,163.917,110.062Zm0,4.69a1.72,1.72,0,1,1,1.72-1.72A1.722,1.722,0,0,1,163.917,114.752Z" transform="translate(-160.947 -110.062)" fill="#848c9f"/>
+      </g>
+    </g>
+    <g id="Group_4919" data-name="Group 4919" transform="translate(50.885)">
+      <g id="Group_4918" data-name="Group 4918">
+        <path id="Path_81" data-name="Path 81" d="M57.295,0a6.417,6.417,0,0,0-6.41,6.41v.177c0,1.788,1.025,3.87,3.046,6.191a26.349,26.349,0,0,0,2.971,2.9l.393.318.393-.318a26.343,26.343,0,0,0,2.971-2.9c2.021-2.321,3.046-4.4,3.046-6.191V6.41A6.417,6.417,0,0,0,57.295,0Zm5.159,6.587c0,3.021-3.892,6.678-5.159,7.788-1.267-1.11-5.159-4.767-5.159-7.788V6.41a5.159,5.159,0,0,1,10.318,0v.177Z" transform="translate(-50.885 0)" fill="#848c9f"/>
+      </g>
+    </g>
+  </g>
+</svg>

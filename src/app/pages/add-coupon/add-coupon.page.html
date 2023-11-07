@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start" mode="md">
+            <ion-back-button defaultHref="/coupon" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'addNewCoupon.addnew' | translate}}</ion-title>
+        <ion-buttons slot="end" mode="md" class="ion-no-margin tn" *ngIf="id == null">
+            <ion-button class="ion-no-margin" (click)="go()" [disabled]="!myForm.valid">
+                <ion-icon slot="icon-only" src="../assets/svg_icon/Group 4929.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end" class="ion-no-margin tn" *ngIf="id !== null">
+            <ion-button class="ion-no-margin" (click)="edit()" [disabled]="!myForm.valid">
+                <ion-icon slot="icon-only" src="../assets/svg_icon/Group 4929.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <form [formGroup]="myForm">
+        <div class="input-div">
+            <p>{{'addNewCoupon.couponTitl' | translate}}</p>
+            <ion-input formControlName="name" name="name" placeholder="{{'addNewCoupon.eventCoponTitle' | translate}}"></ion-input>
+        </div>
+        <p class="err-msg" err *ngIf="myForm.controls.name.hasError('required') && myForm.controls.name.touched" color="danger">
+            {{'addNewCoupon.errName' | translate}}
+        </p>
+        <ion-row class="ion-no-padding">
+            <ion-col size="6" (click)="presentModal('start')" class="ion-no-padding">
+                <p>
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <span *ngIf="date == null">{{'addNewCoupon.startDatae' | translate}}</span>
+                    <span *ngIf="date !== null">{{date}}</span>
+                </p>
+            </ion-col>
+            <ion-col size="6" (click)="presentModal('end')" class="ion-no-padding">
+                <p>
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <span *ngIf="endDate == null">{{'addNewCoupon.endDate' | translate}}</span>
+                    <span *ngIf="endDate !== null">{{endDate}}</span>
+                </p>
+            </ion-col>
+        </ion-row>
+        <div class="input-div ion-margin-top">
+            <p>{{'addNewCoupon.selectEvent' | translate}}</p>
+            <h5 (click)="selectEvent()">{{datas}}</h5>
+        </div>
+        <div class="input-div ion-margin-top">
+            <p>{{'addNewCoupon.discount' | translate}}</p>
+            <ion-input formControlName="discount" maxlength="3" name="discount" placeholder="{{'addNewCoupon.enter' | translate}}" type="tel"></ion-input>
+        </div>
+        <p class="err-msg" err *ngIf="myForm.controls.discount.hasError('required') && myForm.controls.discount.touched" color="danger">
+            {{'addNewCoupon.sic' | translate}}
+        </p>
+        <div class="input-div">
+            <p>{{'addNewCoupon.de' | translate}}</p>
+            <ion-textarea formControlName="description" name="description" rows="4" cols="30" placeholder="{{'addNewCoupon.dePlace'| translate}}"></ion-textarea>
+        </div>
+        <p class="err-msg" err *ngIf="myForm.controls.description.hasError('required') && myForm.controls.description.touched" color="danger">
+            {{'addNewCoupon.redRe' | translate}}
+        </p>
+        <div class="input-div">
+            <p>{{'addNewCoupon.useHowCoupon' | translate}}</p>
+            <ion-input formControlName="max_use" type="tel" placeholder="Enter your event title"></ion-input>
+        </div>
+        <p class="err-msg" err *ngIf="myForm.controls.max_use.hasError('required') && myForm.controls.max_use.touched" color="danger">
+            {{'addNewCoupon.useRequred' | translate}}
+        </p>
+    </form>
+</ion-content>

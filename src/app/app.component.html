@@ -1,0 +1,63 @@
+<ion-app>
+    <ion-split-pane contentId="main-content">
+        <ion-menu contentId="main-content" side="start" *ngIf="lan == 'en'" type="overlay">
+            <ion-header class="ion-no-border">
+                <ion-toolbar (click)="gotoProfile()">
+                    <img [src]="profile?.imagePath" alt="">
+                    <h4>{{profile?.first_name}} {{profile?.last_name}}</h4>
+                    <p>{{profile?.email}}</p>
+                    <ion-buttons slot="end">
+                        <ion-button (click)="gotoProfile()">
+                            <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-menu-toggle *ngFor="let item of ('pages' | translate)" [routerLink]="[item.url]" class="ion-no-padding">
+                    <ion-icon src="{{item?.icon}}"></ion-icon>
+                    <ion-label>
+                        <p [class.right]="lan == 'ar'">{{item?.name}}</p>
+                    </ion-label>
+                </ion-menu-toggle>
+                <ion-item class="ion-no-padding" (click)="log()">
+                    <ion-icon src="../assets/sidemenu/Solid.svg"></ion-icon>
+                    <ion-label>
+                        <p [class.right]="lan == 'ar'">{{'language.log' | translate}}</p>
+                    </ion-label>
+                </ion-item>
+                <p class="version">{{'language.app' | translate}} {{appVersion}}</p>
+            </ion-content>
+        </ion-menu>
+        <ion-menu contentId="main-content" side="start" *ngIf="lan == 'ar'" type="overlay">
+            <ion-header class="ion-no-border">
+                <ion-toolbar (click)="gotoProfile()">
+                    <img [src]="profile?.imagePath" alt="">
+                    <h4>{{profile?.first_name}} {{profile?.last_name}}</h4>
+                    <p>{{profile?.email}}</p>
+                    <ion-buttons slot="end">
+                        <ion-button (click)="gotoProfile()">
+                            <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-menu-toggle *ngFor="let item of ('pages' | translate)" [routerLink]="[item.url]" class="ion-no-padding">
+                    <ion-icon src="{{item?.icon}}"></ion-icon>
+                    <ion-label>
+                        <p [class.right]="lan == 'ar'">{{item?.name}}</p>
+                    </ion-label>
+                </ion-menu-toggle>
+                <ion-item class="ion-no-padding" (click)="log()">
+                    <ion-icon src="../assets/sidemenu/Solid.svg"></ion-icon>
+                    <ion-label>
+                        <p [class.right]="lan == 'ar'">{{'language.log' | translate}}</p>
+                    </ion-label>
+                </ion-item>
+                <p class="version">{{'language.app' | translate}} {{appVersion}}</p>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/settings" icon="chevron-back">
+
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'followers.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <div *ngFor="let i of dataa" class="d">
+        <ion-item class="ion-no-padding" lines="none">
+            <ion-avatar [class.right]="lan == 'ar'">
+                <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                    [preserveAspectRatio]="true" [img]="i?.imagePath + i?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                </ngx-progressive-img-loader>
+            </ion-avatar>
+            <ion-label>
+                <p class="u">{{i?.name}}</p>
+                <p class="e">{{i?.email}}</p>
+            </ion-label>
+            <ion-button fill="clear" mode="ios" slot="end">{{'followers.following' | translate}}</ion-button>
+        </ion-item>
+        <hr>
+    </div>
+    <div *ngIf="!dataa">
+        <div *ngFor="let i of [1,2,3,4,5]">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-avatar>
+                    <ion-skeleton-text animated style="width:100%"></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                </ion-label>
+                <ion-button fill="clear" mode="ios" slot="end">
+                    <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+                </ion-button>
+            </ion-item>
+            <hr>
+        </div>
+    </div>
+</ion-content>

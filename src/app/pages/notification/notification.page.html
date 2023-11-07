@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button>
+                <img src="../../../assets/svg_icon/menu.svg">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'noto.titl' | translate}}</ion-title>
+        <ion-buttons slot="end" mode="md">
+            <ion-button (click)="onClick()" *ngIf="data?.length > 0">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div *ngFor="let item of data">
+        <div class="notification">
+            <p class="title">{{item?.title}}</p>
+            <p class="des">{{item?.message}}</p>
+            <p class="ion-float-right date">{{item?.created_at | date : 'dd MMM yyyy'}}</p>
+        </div>
+    </div>
+
+    <div *ngIf="!data">
+        <div class="notification" *ngFor="let item of [1,2,3]">
+            <p class="title">
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p class="des">
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </p>
+        </div>
+        <p class="ion-float-right date">
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+    </div>
+    <div *ngIf="data?.length == 0" no-data>
+        <img src="../../../assets/no-data.png" alt="">
+    </div>
+</ion-content>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.235" height="21.171" viewBox="0 0 18.235 21.171">
+  <g id="stethoscope" transform="translate(-35.501)">
+    <g id="Group_5020" data-name="Group 5020" transform="translate(35.501 0.824)">
+      <g id="Group_5019" data-name="Group 5019" transform="translate(0)">
+        <path id="Path_589" data-name="Path 589" d="M47.091,19.932H44.618v1.545h1.7v2.91a4.636,4.636,0,1,1-9.272,0v-2.91h1.648V19.932H36.274a.773.773,0,0,0-.773.773v3.683a6.181,6.181,0,1,0,12.363,0V20.7A.773.773,0,0,0,47.091,19.932Z" transform="translate(-35.501 -19.932)" fill="#444"/>
+      </g>
+    </g>
+    <g id="Group_5022" data-name="Group 5022" transform="translate(40.832 10.714)">
+      <g id="Group_5021" data-name="Group 5021" transform="translate(0)">
+        <path id="Path_590" data-name="Path 590" d="M173.706,260.5v3.657a3.863,3.863,0,0,1-7.727,0v-5.048h-1.545v5.048a5.409,5.409,0,1,0,10.817,0V260.5Z" transform="translate(-164.434 -259.114)" fill="#444"/>
+      </g>
+    </g>
+    <g id="Group_5024" data-name="Group 5024" transform="translate(48.018 7.108)">
+      <g id="Group_5023" data-name="Group 5023" transform="translate(0)">
+        <path id="Path_591" data-name="Path 591" d="M341.075,171.912a2.859,2.859,0,1,0,2.859,2.859A2.862,2.862,0,0,0,341.075,171.912Zm0,4.172a1.314,1.314,0,1,1,1.314-1.314A1.315,1.315,0,0,1,341.075,176.084Z" transform="translate(-338.216 -171.912)" fill="#444"/>
+      </g>
+    </g>
+    <g id="Group_5026" data-name="Group 5026" transform="translate(37.896)">
+      <g id="Group_5025" data-name="Group 5025" transform="translate(0)">
+        <path id="Path_592" data-name="Path 592" d="M94.2,0a.773.773,0,0,0-.773.773V2.421a.773.773,0,0,0,1.545,0V.773A.773.773,0,0,0,94.2,0Z" transform="translate(-93.428 0)" fill="#444"/>
+      </g>
+    </g>
+    <g id="Group_5028" data-name="Group 5028" transform="translate(43.871)">
+      <g id="Group_5027" data-name="Group 5027" transform="translate(0)">
+        <path id="Path_593" data-name="Path 593" d="M238.707,0a.773.773,0,0,0-.773.773V2.421a.773.773,0,1,0,1.545,0V.773A.773.773,0,0,0,238.707,0Z" transform="translate(-237.934 0)" fill="#444"/>
+      </g>
+    </g>
+  </g>
+</svg>

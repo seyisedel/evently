@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/settings" icon="chevron-back">
+
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'review.title'|translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="myForm" (ngSubmit)="edit()">
+        <div class="review">
+            <div>
+                <ion-icon (click)="setRatingValue(1,'sad')" slot="icon-only" [src]="names == 'sad' ? '../../../assets/review/firstOne.svg' : '../../../assets/review/first.svg'"></ion-icon>
+                <ion-icon (click)="setRatingValue(2,'nosad')" slot="icon-only" [src]="names == 'nosad' ? '../../../assets/review/second_one.svg' : '../../../assets/review/second.svg'"></ion-icon>
+                <ion-icon (click)="setRatingValue(3,'smile')" slot="icon-only" [src]="names == 'smile' ? '../../../assets/review/thirdOne.svg' : '../../../assets/review/third.svg'"></ion-icon>
+                <ion-icon (click)="setRatingValue(4,'nosmile')" slot="icon-only" [src]="names == 'nosmile' ? '../../../assets/review/ForthOne.svg' : '../../../assets/review/forth.svg'"></ion-icon>
+                <ion-icon (click)="setRatingValue(5,'smilefully')" slot="icon-only" [src]="names == 'smilefully' ? '../../../assets/review/fifthOne.svg' : '../../../assets/review/fifth.svg'"></ion-icon>
+            </div>
+        </div>
+        <div class="i">
+            <div class="input-div">
+                <p>{{'review.addYour' | translate}}</p>
+                <ion-textarea name="message" rows="5" cols="20" placeholder="{{'review.placeho'  | translate}}" formControlName="message"></ion-textarea>
+
+                <span err class="error ion-padding" *ngIf="myForm.controls.message.hasError('required') && myForm.controls.message.touched">
+                        {{'review.des' | translate}}
+                      </span>
+            </div>
+            <div class="input-div">
+                <p>{{'review.email' | translate}}</p>
+                <ion-input name="email" placeholder="Email" type="email" placeholder="{{'review.enterEmail' | translate}}" formControlName="email"></ion-input>
+                <span err class="error ion-padding" *ngIf="myForm.controls.email.hasError('required') && myForm.controls.email.touched">
+                {{'review.emailRe' | translate}}
+              </span>
+                <span err class="error ion-padding" *ngIf="myForm.controls.email.hasError('email') && myForm.controls.email.touched && !myForm.controls.email.hasError('required')">
+                {{'review.valid' | translate}}
+              </span>
+                <span err class="error ion-padding" *ngIf="myForm.controls.email.hasError('email') && myForm.controls.email.pattern">
+                    {{'review.valid' | translate}}
+              </span>
+            </div>
+        </div>
+    </form>
+</ion-content>
+<ion-footer class="ion-no-border">
+    <ion-toolbar class="ion-padding">
+        <ion-button mode="md" class="get" [disabled]="!myForm.valid" type="submit" color="var(--theme-color)"> {{'review.btn' | translate}}</ion-button>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,14 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--theme-color);
+        color: var(--white-color);
+        --min-height: 68px;
+    }
+}
+
+p {
+    text-align: justify;
+    font-size: 13px;
+    color: var(--placeholder-color);
+    line-height: 1.5;
+}

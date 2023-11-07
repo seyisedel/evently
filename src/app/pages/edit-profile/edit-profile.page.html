@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/my-account" icon="chevron-back">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'models.editp' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="ion-text-center ion-margin-top edit">
+        <img class="profile" src="{{image}}" height="123px" width="123px" (click)="albumSheet()">
+        <img class="picker" src="../../../assets/Profile/Group 7990.svg" (click)="albumSheet()">
+    </div>
+
+    <ion-row class="ion-padding-top">
+        <ion-col size="6">
+            <div class="input-div">
+                <p>{{'ac.firstName' | translate}}</p>
+                <ion-input placeholder="{{'ac.firstName' | translate}}" [(ngModel)]="first_name" value="{{profile?.first_name}}"></ion-input>
+            </div>
+        </ion-col>
+        <ion-col>
+            <div class="input-div">
+                <p>{{'ac.last' | translate}}</p>
+                <ion-input placeholder="{{'ac.lastPlace' | translate}}" [(ngModel)]="last_name" value="{{profile?.last_name}}"></ion-input>
+            </div>
+        </ion-col>
+    </ion-row>
+    <div class="input-div">
+        <p>{{'ac.email' | translate}}</p>
+        <ion-input placeholder="{{'ac.email' | translate}}" value="{{profile?.email}}" readonly></ion-input>
+    </div>
+    <div class="input-div">
+        <p>{{'ac.phone' | translate}}</p>
+        <ion-input placeholder="{{'ac.phone' | translate}}" [(ngModel)]="phone" value="{{profile?.phone}}" type="tel"></ion-input>
+    </div>
+    <div class="input-div">
+        <p>{{'ac.bio' | translate}}</p>
+        <ion-textarea placeholder="{{'ac.bio' | translate}}" value="{{profile?.bio}}" [(ngModel)]="bio"></ion-textarea>
+    </div>
+
+    <ion-button mode="md" class="get" expands="full" color="var(--theme-color)" (click)="editProfile()">{{'ac.ed' | translate}}</ion-button>
+
+
+</ion-content>

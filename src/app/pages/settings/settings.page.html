@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button>
+                <img src="../../../assets/svg_icon/menu.svg">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'setting.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-item class="ion-no-padding" (click)="gp()" lines="none">
+        {{'setting.change' | translate}}
+    </ion-item>
+    <ion-item class="ion-no-padding" lines="none" (click)="lan()">
+        {{'setting.lan' | translate}}
+    </ion-item>
+    <ion-item class="ion-no-padding" lines="none" (click)="about()">
+        {{'setting.about' | translate}}
+    </ion-item>
+
+    <ion-item class="ion-no-padding" lines="none" (click)="pri()">
+        {{'setting.privacy' | translate}}
+    </ion-item>
+    <ion-item class="ion-no-padding" lines="none" (click)="ter()">
+        {{'setting.terms' | translate}}
+    </ion-item>
+
+    <ion-item class="ion-no-padding" lines="none" (click)="feed()">
+        {{'setting.feedback' | translate}}
+    </ion-item>
+    <ion-item class="ion-no-padding" lines="none" (click)="fac()">
+        {{'setting.faq' | translate}}
+    </ion-item>
+</ion-content>

@@ -1,0 +1,403 @@
+{
+    "home": {
+        "sold": "Sold",
+        "list": "See Guest List"
+    },
+    "searchOrders": {
+        "label": "Type Something.."
+    },
+    "btn": [{
+            "name": "Future"
+        },
+        {
+            "name": "Past"
+        },
+        {
+            "name": "Draft"
+        }
+    ],
+    "create": {
+        "title": "Create Event",
+        "setup": "Setup Your Event",
+        "eventtitle": "Event Title",
+        "placeholderTitle": "Enter your event title",
+        "descr": "Describe Your Event",
+        "placeholderDescrine": "Your Description Here.........",
+        "pic": "Select Event Picture",
+        "btn1": "Next",
+        "set": "Set the date & time of your event.",
+        "from": "Event Start From",
+        "timePlace": "Time",
+        "and": "Event End At",
+        "date": "Date",
+        "time": "Time",
+        "which": "Which type of event are you going to do ?",
+        "typeEve": "Type of event",
+        "loca": "Enter Your Event Location",
+        "cat": "Event Category",
+        "pri": "Privacy",
+        "howManypeop": "How Many People ?",
+        "peoplePlceholder": "How Many People",
+        "con": "Continue"
+    },
+    "draft": {
+        "title": "Event Title",
+        "from": "Event Start From",
+        "date": "Date",
+        "and": "Event End At",
+        "datee": "Date",
+        "type": "Event Type",
+        "category": "Event Category",
+        "tickets": "Tickets",
+        "view": "View or Add Ticketss",
+        "eventLocation": "Your Event Location",
+        "privacy": "Privacy",
+        "allow": "Peoples Allow",
+        "gallery": "Image Gallery"
+    },
+    "eventDetails": {
+        "title": "Event Detail",
+        "sold": "Sold",
+        "list": "See Guest List",
+        "deleted": "Deleted",
+        "cancelled": "Cancelled",
+        "to": "to",
+        "eventType": "Type of Event",
+        "eventCat": "Event Category",
+        "tag": "Tags",
+        "peoples": "Total Peoples",
+        "start_time": "Start Time",
+        "end_time": "End Time",
+        "rating": "Rating"
+    },
+    "guestList": {
+        "title": "Guest List",
+        "search": "Search guest name or ticket number",
+        "ticketN": "Ticket Number",
+        "guestName": "Guest Name",
+        "tickets": "Tickets",
+        "email": "Email",
+        "phone": "Phone No"
+    },
+    "event-setting": {
+        "title": "Event Settings",
+        "country": "Country",
+        "tax": "Tax",
+        "options": "Tax Options"
+    },
+    "coupon": {
+        "name": "Coupons",
+        "rema": "Remaining",
+        "to": "To",
+        "times": "Times"
+    },
+    "addNewCoupon": {
+        "addnew": "Add New Coupon",
+        "couponTitl": "Coupon Name",
+        "eventCoponTitle": "Enter your Coupon title",
+        "errName": "Name is Required!",
+        "startDatae": "Start Date",
+        "endDate": "End Date",
+        "selectEvent": "Select Event",
+        "discount": "Discount",
+        "enter": "Enter your Discount..",
+        "sic": "Discount is Required!",
+        "de": "Description",
+        "dePlace": "Enter your event Description",
+        "redRe": "Description is Required!",
+        "useHowCoupon": "How Many Time Coupon Will Use?",
+        "useRequred": "Use is Required!"
+    },
+    "followers": {
+        "title": "Followers",
+        "following": "Following"
+    },
+    "noto": {
+        "titl": "Notification"
+    },
+    "setting": {
+        "title": "Settings",
+        "change": "Change Password",
+        "lan": "Language",
+        "about": "About App",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "feedback": "Feedback & Support",
+        "faq": "FAQs"
+    },
+    "changePassword": {
+        "change": "Change Password",
+        "currentPass": "Current Password",
+        "oldPassErr": "Old Password is Required!",
+        "err2": "Old Password is grater than 6 characters!",
+        "new": "New Password",
+        "repa": "New Password is Required!",
+        "oldPass": "New Password is grater than 6 characters!",
+        "confirm": "Confirm Password",
+        "confirmRe": "Confirm Password is Required!",
+        "grater": " Confirm Password is grater than 6 characters!",
+        "save": "Save"
+    },
+    "language": {
+        "title": "Language",
+        "app": "App Version: v1.0",
+        "log": "Logout"
+    },
+    "eventBrite": {
+        "titl": "About App",
+        "pri": "Privacy Policy",
+        "terms": "Terms of Use"
+    },
+    "review": {
+        "title": "Feedback & Support",
+        "addYour": "Add Your Experience",
+        "placeho": "+Add Your Experience",
+        "des": "Description is required",
+        "email": "Email Address",
+        "enterEmail": "Enter your Email Address",
+        "emailRe": "Email is required",
+        "valid": "Please Provide Valid Email ID",
+        "btn": "Share a Feedback"
+    },
+    "faq": {
+        "title": "Fact a Questions"
+    },
+    "taxOption": {
+        "title": "Tax Options",
+        "onbli": "On Billing",
+        "disabl": "Disable This Tax",
+        "enable": "Enable This Tax"
+    },
+    "addnewTax": {
+        "fee": "Fee Breakdown",
+        "tax": "Tax Name",
+        "enter": "Any Tax",
+        "charge": "Charges of Tax",
+        "placeho": "Tax Charge",
+        "allow": "Allow this tax on all bills",
+        "you": "You can change enable disable option from the tax option section anytime in future.",
+        "can": "Cancel",
+        "add": "ADD THIS TAX"
+    },
+    "calendar": {
+        "cancel": "Cancel",
+        "ok": "Ok"
+    },
+    "country": {
+        "label": "Country",
+        "select": "Search Your Country"
+    },
+    "pages": [{
+            "icon": "../assets/sidemenu/home.svg",
+            "name": "Home",
+            "url": "/home"
+        },
+        {
+            "icon": "../assets/sidemenu/balloon.svg",
+            "name": "Event Settings",
+            "url": "/event-setting"
+        },
+        {
+            "icon": "../assets/sidemenu/balloon.svg",
+            "name": "Coupons",
+            "url": "/coupon"
+        },
+        {
+            "icon": "../assets/sidemenu/balloon.svg",
+            "name": "Followers",
+            "url": "/followers"
+        },
+        {
+            "icon": "../assets/sidemenu/search (1).svg",
+            "name": "Search Events",
+            "url": "/search-orders"
+        },
+        {
+            "icon": "../assets/sidemenu/balloon.svg",
+            "name": "Notification",
+            "url": "/notification"
+        },
+        {
+            "icon": "../assets/sidemenu/settings.svg",
+            "name": "Settings",
+            "url": "settings/"
+        }
+    ],
+    "ac": {
+        "who": "Sign Up!",
+        "tell": "Tell us a little bit about yourself",
+        "email": "Email",
+        "placeEmail": "Enter your email",
+        "confirm": "Confirm Email",
+        "conPlace": "Enter Confirm Email",
+        "firstName": "First Name",
+        "placeFirst": "Enter First Name",
+        "last": "Last Name",
+        "lastPlace": "Enter Last Name",
+        "phone": "Phone",
+        "phonePlace": "Enter Your Phone",
+        "password": "Password",
+        "passwordPlace": "* * * * * *",
+        "bycre": "By creating I accept the Evently",
+        "ter": "terms of service",
+        "and": "and",
+        "commin": "community guidelines",
+        "ansd": "and have read the",
+        "privacy": "privacy policy",
+        "btnn": "Get Started",
+        "bio": "Bio",
+        "ed": "Edit Profile"
+    },
+    "login": {
+        "hello": "Hello",
+        "desc": "Sign up or login in to create and manage events",
+        "email": "Email",
+        "placeEmail": "Enter Email",
+        "emailRe": "Email Address is required!",
+        "emailIn": "Email is invalid!",
+        "password": "Password",
+        "passPlace": "Enter Your Password",
+        "passRe": " Password is required!",
+        "passGrater": " Password is grater than 6 characters!",
+        "forgot": "Forgot Password ? ",
+        "or": "Or",
+        "dot": "I Don't Have An Account ?",
+        "signUp": "Sign Up"
+    },
+    "toasts": {
+        "addCoupon": {
+            "startDate": "Start Date Required",
+            "endDate": "End Date Required",
+            "selectEvent": "Select Event",
+            "coupon": "Coupon Added Successfully",
+            "edied": "Coupon Edited Successfully"
+        },
+        "change": {
+            "success": "Success!,Your password is change successfully",
+            "current": "Current Password is wrong!",
+            "deleted": "Coupon Deleted Successfully"
+        },
+        "create": {
+            "cate": "Select your category",
+            "peoples": "Peoples Field Required",
+            "address": "Address are Required",
+            "eventAddedd": "Event Addedd Successfully"
+        },
+        "editProfile": {
+            "profileChanged": "Profile Changed Successfullly",
+            "imageChanged": "Image has successfuly Changed",
+            "someThingWent": "Something Went Wrong",
+            "image": "Image has successfuly Changed",
+            "someThing": "Something went wrong"
+        },
+        "editTicket": {
+            "ticketNameRe": "Ticket Name must be Required",
+            "desc": "Description must be Required",
+            "ticketQu": "Ticket Quantity must be Required",
+            "price": "Please Enter Ticket Price",
+            "ticketPerOrder": "Define Ticker Per Order",
+            "ticketEdited": "Ticket Edited Successfully"
+        },
+        "changedPassword": {
+            "new": "New Password Has been send Successfully to Your Email",
+            "valid": "Please Provide Valid Email ID",
+            "some": "Something Went Wrong"
+        },
+        "ticket": {
+            "del": "Ticket Deleted Successfully"
+        },
+        "login": {
+            "inva": "Invalid Username or password",
+            "inva2": "Invalid Username or password"
+        },
+        "review": {
+            "addedd": "Review Added Successfully"
+        },
+        "tax": {
+            "ad": "Status Updated Successfully"
+        },
+        "popoever": {
+            "can": "Event Cancelled Successfully"
+        },
+        "taxD": {
+            "del": "Tax Deleted Successfullly"
+        }
+    },
+    "popover2": {
+        "ed": "Edit This Tax",
+        "rem": "Remove Permanently"
+    },
+    "popover1": {
+        "cance": "Cancel Event",
+        "del": "Delete Event"
+    },
+    "models": {
+        "visi": "Ticket Visibility",
+        "ticketLabel": "Tickets",
+        "sold": "Sold",
+        "free": "Free",
+        "paid": "Paid",
+        "ticketDetails": "Ticket Details",
+        "totalTicket": "Total Tickets",
+        "email": "Email",
+        "contact": "Contact",
+        "ticketPurchaseDate": "Ticket Purchase Date",
+        "select-ce": "select-event-type",
+        "anyone": "Select Anyone",
+        "channel": "Sales Channel",
+        "my": "My Account",
+        "bio": "Bio",
+        "adpp": "++ Add Phone Number",
+        "addBio": "++ Add Bio",
+        "ecat": "select-event-Category",
+        "editp": "Edit Profile"
+    },
+    "setupProfile": {
+        "skip": "Skip for now",
+        "setupProdile": "Setup your profile",
+        "who": "Who's hosting this event ?",
+        "select": "Select Profile Picture",
+        "orga": "Organizer Name",
+        "con": "Continue",
+        "place": "Enter Organizer Name"
+    },
+    "newTicket": {
+        "edit": "Edit Ticket",
+        "tickets": "Tickets",
+        "name": "Ticket Name",
+        "place1": "Enter Ticket Name",
+        "de": "Description",
+        "op": "Optional Details",
+        "how": "How Much Tickets ?",
+        "price": "Price",
+        "pricePlafe": "Price",
+        "salesStart": "Sales Start",
+        "salesEnd": "Sales End",
+        "das": "Start Datetime",
+        "endD": "End Datetime",
+        "vis": "Ticket Visibility",
+        "tick": "Ticket Per Order",
+        "type": "Type"
+    },
+    "forgotPass": {
+        "title": "Forgot Password",
+        "email": "Enter your Email ID",
+        "place": "Enter Your Email Id",
+        "emailR": " Email Address is required!",
+        "re": "Email is invalid!",
+        "v": "Verify Account",
+        "plx": "Please check your email, we will send one OTP code on your device."
+    },
+    "SelectLanguage": {
+        "label": "Select Language",
+        "english": "English",
+        "Cancel": "Cancel",
+        "ok": "Ok",
+        "l": "Loading.."
+    },
+    "alertPopup": {
+        "alert": "Alert",
+        "are": "Are You Sure you Want To Clear All Notification ?",
+        "text": "OK"
+    }
+}

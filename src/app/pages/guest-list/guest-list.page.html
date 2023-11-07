@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/search-orders" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'guestList.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-item class="ion-no-padding search">
+        <ion-input [(ngModel)]="term" placeholder="{{'guestList.search' | translate}}"></ion-input>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" src="../../../assets/svg_icon/se.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item><br><br>
+
+    <ngx-datatable [limit]="30" [columnMode]="ColumnMode.standard" class="draggable" [rows]="data | filter:term" #table [sortType]="'multi'" [scrollbarH]="true" [selected]="selected" [selectionType]="SelectionType.single" (activate)="onActivate($event)" (select)="onSelect($event)">
+        <ngx-datatable-column prop="id">
+            <ng-template ngx-datatable-header-template="ngx-datatable-header-template">
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template="ngx-datatable-cell-template">
+                <ion-icon (click)="ticketDetails()" src="../../../assets/events/file.svg"></ion-icon> &nbsp;
+                <ion-icon (click)="deleteTicket()" src="../../../assets/events/delete.svg"></ion-icon>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="ticket.ticket_number">
+            <ng-template ngx-datatable-header-template="ngx-datatable-header-template">
+                {{'guestList.ticketN' | translate}}
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template="ngx-datatable-cell-template">
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="customer.name">
+            <ng-template ngx-datatable-header-template="ngx-datatable-header-template">
+                {{'guestList.guestName' | translate}}
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template="ngx-datatable-cell-template">
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="quantity">
+            <ng-template ngx-datatable-header-template="ngx-datatable-header-template">
+                {{'guestList.tickets' | translate}}
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template="ngx-datatable-cell-template">
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="customer.email">
+            <ng-template ngx-datatable-header-template="ngx-datatable-header-template">
+                {{'guestList.email' | translate}}
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template="ngx-datatable-cell-template">
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="customer.phone">
+            <ng-template ngx-datatable-header-template="ngx-datatable-header-template">
+                {{'guestList.phone' | translate}}
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template="ngx-datatable-cell-template">
+                {{value}}
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</ion-content>

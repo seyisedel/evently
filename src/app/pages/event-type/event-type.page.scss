@@ -1,0 +1,34 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--theme-color);
+        --min-height: 75px;
+        ion-title {
+            font-size: 25px;
+            font-family: 'eco-medium';
+        }
+    }
+}
+
+.non-active {
+    font-size: 18px;
+    font-family: 'eco-medium';
+    border-bottom: 2px solid #dddddd;
+    margin-left: 16px;
+    margin-right: 16px;
+    color: var(--placeholder-color);
+    padding-bottom: 10px;
+}
+
+.active {
+    font-size: 18px;
+    font-family: 'eco-medium';
+    border-bottom: 2px solid #dddddd;
+    margin-left: 16px;
+    margin-right: 16px;
+    color: var(--black-color);
+    padding-bottom: 10px;
+}
+
+p:last-child {
+    border: none !important;
+}

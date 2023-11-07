@@ -1,0 +1,14 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>{{'models.select-ce' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="ion-no-padding" lines="none" button mode="md" *ngFor="let item of event">
+        <ion-label>
+            <ion-icon src="{{item?.icon}}"></ion-icon>
+            {{item?.name}}
+        </ion-label>
+    </ion-item>
+</ion-content>

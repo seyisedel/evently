@@ -1,0 +1,120 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/search-orders" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'eventDetails.title' | translate}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="drafts(data?.id)">
+                <ion-icon slot="icon-only" src="../../../assets/events/pencil.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" mode="md">
+    <ngx-progressive-img-loader class="topimage" *ngIf="data?.gallery == null" [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+        [preserveAspectRatio]="true" [img]="data?.imagePath + data?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+    </ngx-progressive-img-loader>
+    <ion-slides pager="true" [options]="slideOpts" *ngIf="data?.gallery != null">
+        <ion-slide *ngFor="let item of data?.gallery">
+            <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                [preserveAspectRatio]="true" [img]="item" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+            </ngx-progressive-img-loader>
+        </ion-slide>
+    </ion-slides>
+    <ion-item class="ion-no-padding bottom" lines="none" (click)="goNext()">
+        <ion-label [class.right]="lan == 'ar'">{{data?.soldTickets}} / {{data?.totalTickets}} {{'eventDetails.sold' | translate}}</ion-label>
+        <ion-buttons slot="end">
+            <ion-buttons slot="end" *ngIf="data?.is_deleted == 0">
+                <ion-button (click)="guestList(data?.id)" fill="clear" mode="ios">
+                    {{'eventDetails.list' | translate}}&nbsp;
+                    <ion-icon name="chevron-forward"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end" *ngIf="data?.is_deleted == 1">
+                <ion-button class="deleted" fill="clear" mode="ios">
+                    {{'eventDetails.deleted' | translate}}&nbsp;
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end" *ngIf="data?.event_status == 'Cancel'">
+                <ion-button class="deleted" fill="clear" mode="ios">
+                    {{'eventDetails.cancelled' | translate}}&nbsp;
+                </ion-button>
+            </ion-buttons>
+        </ion-buttons>
+    </ion-item><br>
+
+    <p class="title ion-margin-top"> {{data?.name}} </p>
+    <p class="title ion-margin-top" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+    <p class="subtitle">{{data?.description}}</p>
+    <p class="subtitle" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+    <p class="date">{{data?.start_time | date : 'dd MMM yyyy, hh:mm a'}} <span>{{'eventDetails.to' | translate}}</span> {{data?.end_time | date : 'dd MMM yyyy, hh:mm a'}}</p>
+    <p class="date" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+    <p class="description">{{data?.description}}</p>
+    <p class="description" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+
+    <p class="data" *ngIf="!data">
+        {{'eventDetails.eventType' | translate}}<span class="ion-float-right">{{data?.type}}<ion-skeleton-text  animated></ion-skeleton-text></span>
+    </p>
+    <p class="data" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+    <p class="data" *ngIf="!data">
+        {{'eventDetails.eventCat' | translate}}<span class="ion-float-right">{{data?.category?.name}}</span>
+    </p>
+    <p class="data" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+    <div *ngIf="data?.tags?.length > 0">
+        <p class="data">
+            {{'eventDetails.tag' | translate}}
+        </p>
+        <ion-chip *ngFor="let item of data?.tags">{{item}}</ion-chip>
+    </div>
+
+    <p class="data">
+        {{'eventDetails.peoples' | translate}}<span class="ion-float-right">{{data?.people}}</span>
+    </p>
+    <p class="data" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+
+    <p class="data">
+        {{'eventDetails.start_time' | translate}}<span class="ion-float-right">{{data?.start_time | date : 'dd MMM yyyy, hh:mm a'}}</span>
+    </p>
+    <p class="data" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+
+    <p class="data">
+        {{'eventDetails.end_time' | translate}}<span class="ion-float-right">{{data?.people  | date : 'dd MMM yyyy, hh:mm a'}}</span>
+    </p>
+    <p class="data" *ngIf="!data">
+        <ion-skeleton-text animated></ion-skeleton-text>
+    </p>
+
+    <p class="data">
+        {{'eventDetails.rating' | translate}}
+    </p>
+    <div class="review" *ngIf="data?.rate >= 1">
+        <div>
+            <ion-icon slot="icon-only" [src]="data?.rate >= 1 ? '../../../assets/review/firstOne.svg' : '../../../assets/review/first.svg'"></ion-icon>
+            <ion-icon slot="icon-only" [src]="data?.rate >= 2 ? '../../../assets/review/second_one.svg' : '../../../assets/review/second.svg'"></ion-icon>
+            <ion-icon slot="icon-only" [src]="data?.rate >= 3 ? '../../../assets/review/thirdOne.svg' : '../../../assets/review/third.svg'"></ion-icon>
+            <ion-icon slot="icon-only" [src]="data?.rate >= 4 ? '../../../assets/review/ForthOne.svg' : '../../../assets/review/forth.svg'"></ion-icon>
+            <ion-icon slot="icon-only" [src]="data?.rate >= 5 ? '../../../assets/review/fifthOne.svg' : '../../../assets/review/fifth.svg'"></ion-icon>
+        </div>
+    </div>
+
+
+
+</ion-content>

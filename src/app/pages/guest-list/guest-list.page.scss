@@ -1,0 +1,38 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--theme-color);
+        color: var(--white-color);
+        --min-height: 68px;
+    }
+}
+
+ion-content {
+    .search {
+        --inner-padding-end: 0px;
+        --padding-end: 0px;
+        ion-input {
+            font-family: "eco-medium";
+            font-style: italic;
+            font-size: 15px;
+            color: var(--placeholder-color);
+            --placeholder-opacity: 0.5;
+        }
+        ion-buttons {
+            margin: 0;
+            ion-button {
+                margin: 0;
+            }
+        }
+    }
+    ion-icon {
+        font-size: 22px !important;
+    }
+    ion-row {
+        ion-col {
+            p {
+                font-size: 12px;
+                font-family: 'eco-medium';
+            }
+        }
+    }
+}

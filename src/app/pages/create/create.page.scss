@@ -1,0 +1,211 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--theme-color);
+        color: var(--white-color);
+        --min-height: 68px;
+    }
+    ion-col {
+        padding-top: 0px;
+        padding-left: 0px;
+        hr {
+            height: 4px;
+            background: var(--black-color);
+            margin: 0;
+        }
+    }
+}
+
+.camera {
+    display: inline-flex;
+    img {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
+}
+
+h2 {
+    font-size: 14px;
+    font-family: 'eco-medium';
+    color: var(--black-color);
+    margin-left: 21px;
+    margin-top: 44px;
+}
+
+.heading {
+    font-size: 35px;
+    font-family: "eco-medium";
+    color: var(--black-color);
+    margin-bottom: 25px;
+}
+
+.input-div {
+    margin-bottom: 29px;
+    p {
+        margin: 0px;
+        font-size: 14px;
+        font-family: 'eco-medium';
+    }
+    ion-input,
+    ion-textarea {
+        --padding-start: 0px;
+        --padding-top: 3px;
+        --placeholder-color: var(--placeholder-color);
+        color: var(--black-color);
+        font-family: 'eco-medium';
+        border-bottom: 0.5px solid #cccccc;
+        --padding-bottom: 7px;
+    }
+}
+
+.length {
+    font-size: 14px;
+    font-family: eco-medium;
+    margin: 0px !important;
+    color: var(--black-color);
+}
+
+.di {
+    margin-bottom: 5px !important;
+}
+
+.next {
+    height: 44px;
+    --background: var(--theme-color);
+    overflow: hidden;
+    font-family: 'eco-medium';
+    font-size: 15px;
+    text-transform: capitalize;
+    border-radius: 38px;
+    ion-icon {
+        margin-left: 12px;
+    }
+}
+
+ion-row {
+    ion-col {
+        padding-top: 0px;
+        p {
+            margin-bottom: 0px;
+            font-size: 16px;
+            color: var(--placeholder-color);
+            font-family: 'eco-medium';
+            border-bottom: 2px solid #dddddd;
+            padding-bottom: 9px;
+            padding-top: 0px;
+            margin-top: 13px;
+            ion-icon {
+                margin-right: 6px;
+                margin-bottom: -2px;
+            }
+        }
+        ion-item {
+            border-bottom: 2px solid #dddddd;
+            margin-top: -6px;
+            ion-label {
+                font-size: 16px;
+                font-family: 'eco-medium';
+                color: var(--placeholder-color);
+                margin-top: 14px;
+                padding-top: 2px;
+                ion-icon {
+                    margin-bottom: -2px;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}
+
+.time {
+    padding-top: 6px;
+    color: var(--placeholder-color);
+}
+
+.start {
+    margin: 0px;
+    font-size: 14px;
+    font-family: 'eco-medium';
+    color: var(--black-color);
+}
+
+ion-datetime {
+    font-family: 'eco-medium';
+    color: var(--placeholder-color);
+    --padding-start: 10px;
+    --padding-top: 16px;
+}
+
+.end {
+    margin-top: 24px;
+}
+
+.type {
+    display: inline-flex;
+    width: 100%;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 6px;
+    .pin {
+        margin-top: 1px;
+    }
+    p {
+        margin: 0px;
+        width: 88%;
+        padding-left: 11px;
+        font-size: 16px;
+        font-family: 'eco-medium';
+        color: var(--placeholder-color);
+    }
+}
+
+input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'eco-medium';
+    color: var(--placeholder-color);
+    border-bottom: 2px solid #EEEEEE;
+    padding-bottom: 7px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.enter {
+    margin-top: 10px !important;
+}
+
+.p {
+    font-family: eco-medium;
+    font-size: 16px;
+    color: var(--black-color);
+    margin-bottom: 5px;
+}
+
+.type {
+    display: inline-flex;
+    width: 100%;
+    padding-bottom: 6px;
+    .pin {
+        margin-top: 1px;
+    }
+    p {
+        margin: 0px;
+        width: 88%;
+        font-size: 16px;
+        font-family: 'eco-medium';
+        color: var(--placeholder-color);
+    }
+}
+
+.next3 {
+    --background: var(--theme-color);
+    overflow: hidden;
+    border-radius: 20px;
+    font-family: 'eco-medium';
+    text-transform: capitalize;
+    height: 41px;
+    ion-icon {
+        margin-left: 10px;
+    }
+}

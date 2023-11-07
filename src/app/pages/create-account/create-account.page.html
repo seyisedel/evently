@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/login" [icon]="icon"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <h1 class="heading">{{'ac.who' | translate}}</h1>
+    <p class="tell">{{'ac.tell' | translate}}</p>
+
+    <div class="input-div">
+        <p>{{'ac.email' | translate}}</p>
+        <ion-input [(ngModel)]="email" type="email" placeholder="{{'ac.placeEmail' | translate}}"></ion-input>
+        <p *ngIf="err?.email" err>*{{err?.email}}</p>
+    </div>
+    <div class="input-div">
+        <p>{{'ac.confirm' | translate}}</p>
+        <ion-input [(ngModel)]="confirm_email" type="email" placeholder="{{'ac.conPlace' | translate}}"></ion-input>
+        <p *ngIf="err?.email" err>*{{err?.confirm_email}}</p>
+    </div>
+    <div class="input-div">
+        <p>{{'ac.firstName' | translate}}</p>
+        <ion-input placeholder="{{'ac.placeFirst' | translate}}" [(ngModel)]="first_name"></ion-input>
+        <p *ngIf="err?.email" err>*{{err?.first_name}}</p>
+    </div>
+    <div class="input-div">
+        <p>{{'ac.last' | translate}}</p>
+        <ion-input placeholder="{{'ac.lastPlace' | translate}}" [(ngModel)]="last_name"></ion-input>
+        <p *ngIf="err?.email" err>*{{err?.last_name}}</p>
+    </div>
+    <div class="input-div">
+        <p>{{'ac.phone' | translate}}</p>
+        <ion-input placeholder="{{'ac.phonePlace' | translate}}" [(ngModel)]="phone" type="tel"></ion-input>
+        <p *ngIf="err?.email" err>*{{err?.phone}}</p>
+    </div>
+
+    <div class="input-div">
+        <p>{{'ac.password' | translate}}</p>
+        <ion-input type="password" placeholder="{{'ac.passwordPlace' | translate}}" [(ngModel)]="password"></ion-input>
+        <p *ngIf="err?.email" err>*{{err?.password}}</p>
+    </div>
+    <ion-button mode="md" class="get" expands="full" (click)="login()" color="var(--theme-color)">{{'ac.btnn' | translate}}</ion-button>
+    <p class="last">{{'ac.bycre' | translate}} <span>{{'ac.ter' | translate}}</span> {{'ac.and' | translate}} <span>{{'ac.commin' | translate}}</span> {{'ac.ansd' | translate}}<span> {{'ac.privacy' | translate}}</span></p>
+</ion-content>

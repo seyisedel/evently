@@ -1,0 +1,188 @@
+<ion-header class="ion-no-border" mode="md">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-menu-button>
+                <img src="../../../assets/svg_icon/menu.svg">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end" mode="md">
+            <ion-button (click)="search()">
+                <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <div class="segment-div">
+        <ion-row class="ion-no-padding">
+            <ion-col size="4" class="ion-no-padding" *ngFor="let item of ('btn' | translate)" (click)="segmentChanged(item.name)">
+                <div class="btn">
+                    <ion-button fill="clear">
+                        {{item?.name}}
+                    </ion-button>
+                    <hr *ngIf="select == item?.name">
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="getUsersList($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="select == 'Nearing' || select == 'تقترب'">
+        <div class="event" *ngFor="let item of data?.upcoming">
+            <ngx-progressive-img-loader (click)="homeDetails(item?.id)" [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-500x400.png'">
+            </ngx-progressive-img-loader>
+            <ion-item class="ion-no-padding bottom" lines="none">
+                <ion-label [class.right]="lan == 'ar'">{{item?.soldTickets}} / {{item?.totalTickets}} {{'home.sold' | translate}}</ion-label>
+                <ion-buttons slot="end">
+                    <ion-button (click)="guestList(item?.id)" fill="clear" mode="ios">
+                        {{'home.list' | translate}}&nbsp;
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+            <ion-item class="ion-no-padding pride" lines="none">
+                <ion-label>
+                    <h1><span>{{item?.start_time | date : 'MMM'}}</span> {{item?.name}} </h1>
+                    <p><span>{{item?.start_time | date :'dd'}}</span> {{item?.description}}</p>
+                </ion-label>
+                <ion-buttons slot="end">
+                    <ion-button mode="ios" (click)="drafts(item?.id)">
+                        <ion-icon slot="icon-only" src="../../../assets/svg_icon/pencil2.svg"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+        </div>
+        <div *ngIf="!data">
+            <div class="event" *ngFor="let item of [1,2,3,4,5]">
+                <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                    [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                </ngx-progressive-img-loader>
+                <ion-item class="ion-no-padding bottom" lines="none">
+                    <ion-label>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-label>
+                    <ion-buttons slot="end">
+                        <ion-button fill="clear" mode="ios">
+                            <ion-skeleton-text animated></ion-skeleton-text>&nbsp;
+
+                        </ion-button>
+                    </ion-buttons>
+                </ion-item>
+                <ion-item class="ion-no-padding pride" lines="none">
+                    <ion-label>
+                        <h1>
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                        </h1>
+                        <p>
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+
+                </ion-item>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="select == 'Past' || select == 'ماضٍ'">
+        <div class="event" *ngFor="let item of data?.past">
+            <ngx-progressive-img-loader (click)="homeDetails(item?.id)" [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+            </ngx-progressive-img-loader>
+            <ion-item class="ion-no-padding bottom" lines="none">
+                <ion-label [class.right]="lan == 'ar'">{{item?.soldTickets}} / {{item?.totalTickets}} {{'home.sold' | translate}}</ion-label>
+
+                <ion-buttons slot="end" *ngIf="item?.is_deleted == 0 && item?.event_status !== 'Cancel'">
+                    <ion-button (click)="guestList(item?.id)" fill="clear" mode="ios">
+                        {{'home.list' | translate}}&nbsp;
+                        <ion-icon name="chevron-forward"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+
+                <ion-buttons slot="end" *ngIf="item?.is_deleted == 1">
+                    <ion-button class="deleted" fill="clear" mode="ios">
+                        {{item?.event_status}}&nbsp;
+                    </ion-button>
+                </ion-buttons>
+
+
+                <ion-buttons slot="end" *ngIf="item?.event_status == 'Cancel'">
+                    <ion-button class="deleted" fill="clear" mode="ios">
+                        {{item?.event_status}}&nbsp;
+                    </ion-button>
+                </ion-buttons>
+
+            </ion-item>
+            <ion-item class="ion-no-padding pride" lines="none">
+                <ion-label>
+                    <h1><span>{{item?.start_time | date : 'MMM'}}</span> {{item?.name}} </h1>
+                    <p><span>{{item?.start_time | date :'dd'}}</span> {{item?.description}}</p>
+                    <h1 *ngIf="!item?.start_time">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </h1>
+                    <p *ngIf="!item?.start_time">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </div>
+        <div *ngIf="!data">
+            <div class="event" *ngFor="let item of [1,2,3,4,5]">
+                <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                    [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-600x600.png'">
+                </ngx-progressive-img-loader>
+                <ion-item class="ion-no-padding bottom" lines="none">
+                    <ion-label>
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-label>
+                    <ion-buttons slot="end">
+                        <ion-button fill="clear" mode="ios">
+                            <ion-skeleton-text animated></ion-skeleton-text>&nbsp;
+                        </ion-button>
+                    </ion-buttons>
+                </ion-item>
+                <ion-item class="ion-no-padding pride" lines="none">
+                    <ion-label>
+                        <h1>
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                        </h1>
+                        <p>
+                            <ion-skeleton-text animated></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+
+                </ion-item>
+            </div>
+        </div>
+        <div *ngIf="data?.past?.length == 0" no-data>
+            <img src="../../../assets/no-data.png" alt="">
+        </div>
+
+    </div>
+    <div *ngIf="select == 'Draft' || select == 'مشروع'">
+        <div class="draft" *ngFor="let item of data?.draft">
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-buttons slot="start" mode="ios">
+                    <ion-button (click)="drafts(item?.id)">
+                        <ion-icon slot="icon-only" src="../../../assets/svg_icon/pencil.svg"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+                <ion-label>
+                    <h1>{{item?.name}}</h1>
+                    <p>{{item?.start_time | date : 'dddd,dd MMM yyyy'}} {{item?.start_time | date : 'HH MM a'}}</p>
+                </ion-label>
+            </ion-item>
+        </div>
+        <div *ngIf="data?.draft?.length == 0" no-data>
+            <img src="../../../assets/no-data.png" alt="">
+        </div>
+    </div>
+
+    <ion-fab class="animated slideInUp" horizontal="end" vertical="bottom" slot="fixed" mode="ios">
+        <ion-fab-button routerDirection="forward" [routerLink]="['/create']">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

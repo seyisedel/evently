@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button>
+                <img src="../../../assets/svg_icon/menu.svg">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-input placeholder="{{'searchOrders.label' | translate}}" [(ngModel)]="term"></ion-input>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-margin-top">
+    <ion-item class="ion-no-padding" lines="none" *ngFor="let item of data|filter:term">
+        <ion-thumbnail [class.left]="lan == 'ar'">
+            <ngx-progressive-img-loader [height]="'100%'" [width]="'100%'" [placeholderBgColor]="'#ccc'" [placeholderImg]="'https://vignette.wikia.nocookie.net/the-darkest-minds/images/4/47/Placeholder.png/revision/latest/scale-to-width-down/240?cb=20160927044640'"
+                [preserveAspectRatio]="true" [img]="item?.imagePath + item?.image" [thumbnail]="'https://picsum.photos/200/200?image='" [fallbackImg]="'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-300x300.png'">
+            </ngx-progressive-img-loader>
+        </ion-thumbnail>
+        <ion-label>
+            <h1>{{item?.name}}</h1>
+            <p>{{item?.start_time | date : 'MMM'}}</p>
+            <h3>{{item?.start_time | date : 'dd'}}</h3>
+        </ion-label>
+    </ion-item>
+
+
+    <div *ngIf="!data">
+        <ion-item class="ion-no-padding" lines="none" *ngFor="let item of [1,2,3,4,5]">
+            <ion-thumbnail>
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+            <ion-label>
+                <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+            </ion-label>
+        </ion-item>
+    </div>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title mode="md">{{'models.ticketDetails' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding ion-margin-top">
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-label>
+            <p>{{data?.ticket?.ticket_number}}</p>
+            <h2>{{data?.customer?.name}}</h2>
+        </ion-label>
+        <ion-buttons slot="end" mode="ios">
+            <ion-button (click)="deleteTicket()">
+                <ion-icon slot="icon-only" src="../../../assets/events/delete.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+    <p class="description">{{'models.totalTicket' | translate}} <span class="ion-float-right">{{data?.quantity}}</span></p>
+    <p class="description">{{'models.email' | translate}} <span class="ion-float-right">{{data?.customer?.email}}</span></p>
+    <p class="description">{{'models.contact' | translate}} <span class="ion-float-right">{{data?.customer?.phone}}</span></p>
+    <p class="description">{{'models.ticketPurchaseDate' | translate}} <span class="ion-float-right">{{data?.created_at | date: 'dd MMM yyyy'}}</span></p>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/settings" icon="chevron-back">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'faq.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-row *ngFor="let item of dataOf" (click)="expandToggle(item)">
+        <ion-col size="12">
+            <p>*){{item?.question}} <span class="ion-float-right"><ion-icon [name]="item.isExpand == true ? 'chevron-down':'chevron-forward'"></ion-icon></span></p>
+            <ion-text *ngIf="item?.isExpand == true">
+                {{item?.answer}}
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <div *ngIf="!dataOf">
+        <ion-row *ngFor="let item of [1,2,3,4]">
+            <ion-col size="12">
+                <p>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </p>
+                <ion-text>
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+
+    </div>
+</ion-content>

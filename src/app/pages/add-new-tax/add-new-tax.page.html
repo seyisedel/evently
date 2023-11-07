@@ -1,0 +1,29 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title mode="md">{{'addnewTax.fee' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding ion-padding-top">
+    <div class="input-div ion-margin-top">
+        <p>{{'addnewTax.tax' | translate}}</p>
+        <ion-input placeholder="{{'addnewTax.enter' | translate}}" [(ngModel)]="name"></ion-input>
+    </div>
+    <br>
+    <div class="input-div ion-margin-top">
+        <p>{{'addnewTax.charge' | translate}}</p>
+        <ion-input placeholder="{{'addnewTax.placeho' | translate}}" [(ngModel)]="charge" type="tel"></ion-input>
+    </div>
+    <ion-item class="ion-no-padding" lines="none" mode="md">
+        <ion-checkbox [(ngModel)]="check" (ionChange)="checkBox($event)"></ion-checkbox>
+        <ion-label>
+            <p>{{'addnewTax.allow' | translate}}</p>
+        </ion-label>
+    </ion-item>
+    <ion-text>*{{'addnewTax.you' | translate}}.</ion-text>
+    <ion-button fill="clear" (click)="dismiss()" class="ca">
+        {{'addnewTax.can' | translate}}
+    </ion-button>
+    <ion-button fill="clear" (click)="addThisTax()" class="ad">
+        {{'addnewTax.add' | translate}}
+    </ion-button>
+</ion-content>

@@ -1,0 +1,81 @@
+ion-content {
+    .top {
+        margin-top: 56px;
+        h1 {
+            font-size: 35px;
+            font-family: 'eco-medium';
+            color: var(--black-color);
+            margin-bottom: 0px;
+        }
+        p {
+            font-size: 16px;
+            font-family: 'eco-medium';
+            margin-top: 0px;
+        }
+    }
+    .bottom-container {
+        .span {
+            color: black;
+            font-family: eco-medium;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        margin-top: 129px;
+        .input-div {
+            p {
+                margin: 0;
+            }
+            font-size: 14px;
+            font-family: 'eco-medium';
+            margin-bottom: 10px;
+            ion-input {
+                --padding-start: 0px;
+                font-size: 16px;
+                font-family: 'eco-medium';
+                --placeholder-color: var(--placeholder-color);
+                color: black;
+                border-bottom: 1.5px solid #bbbbbb;
+                --padding-bottom: 7px;
+            }
+        }
+    }
+    .get {
+        width: 100%;
+        background: var(--theme-color);
+        overflow: hidden;
+        height: 44px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-family: 'eco-medium';
+        text-transform: capitalize;
+        margin-top: 32px;
+    }
+    .or {
+        margin-top: 44px;
+        font-size: 16px;
+        font-family: 'eco-medium';
+        color: var(--placeholder-color);
+        text-transform: lowercase;
+        text-align: center;
+    }
+    .fb {
+        overflow: hidden;
+        background: var(--fb-color);
+        font-size: 18px;
+        font-family: 'eco-medium';
+        text-transform: capitalize;
+        height: 44px;
+        border-radius: 5px;
+    }
+    .last {
+        font-size: 11px;
+        font-family: 'eco-medium';
+        text-align: center;
+        color: var(--placeholder-color);
+        margin-top: 25px;
+        span {
+            color: var(--span-color);
+            font-weight: bold;
+        }
+    }
+}

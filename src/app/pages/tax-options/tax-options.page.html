@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button>
+                <img src="../../../assets/svg_icon/menu.svg">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'taxOption.title' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item class="ion-no-padding" *ngFor="let i of tax" button mode="md">
+        <ion-label>
+            <h1>{{i?.name}}</h1>
+            <p>{{currency}}{{i?.price}} <span *ngIf="i?.allow_all_bill == 1">{{'taxOption.onbli' | translate}}</span></p>
+        </ion-label>
+        <ion-buttons slot="end" *ngIf="i?.status == 1" (click)="statusChanged(i.id,'0')">
+            <ion-button class="de" fill="clear" mode="ios">
+                {{'taxOption.disabl' | translate}}
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end" *ngIf="i?.status == 0">
+            <ion-button class="ed" fill="clear" mode="ios" (click)="statusChanged(i.id,'1')">
+                {{'taxOption.enable' | translate}}
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="eli" mode="ios">
+            <ion-button (click)="presentPopover($event,i.id)">
+                <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+
+    <div *ngIf="!tax">
+        <ion-item class="ion-no-padding" *ngFor="let i of [1,2,3,4,5,6]" button mode="md">
+            <ion-label>
+                <h1>
+                    <ion-skeleton-text mode="ios" animated style="width: 40%;height: 15px;"></ion-skeleton-text>
+                </h1>
+                <p>
+                    <ion-skeleton-text mode="ios" animated style="width: 70%"></ion-skeleton-text>
+                </p>
+            </ion-label>
+            <ion-buttons slot="end" *ngIf="i?.status == 1">
+                <ion-button class="de" fill="clear" mode="ios">
+                    <ion-skeleton-text mode="ios" animated></ion-skeleton-text>
+                </ion-button>
+            </ion-buttons>
+
+            <ion-buttons slot="end" *ngIf="i?.status == 0">
+                <ion-button class="ed" fill="clear" mode="ios">
+                    <ion-skeleton-text mode="ios" animates style="width: 40%;"></ion-skeleton-text>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end" class="eli" mode="ios">
+                <ion-button>
+                    <ion-skeleton-text mode="ios" animated style="width: 30%"></ion-skeleton-text>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+    </div>
+
+    <ion-fab class="animated slideInUp" horizontal="end" vertical="bottom" slot="fixed" mode="ios">
+        <ion-fab-button (click)="presentModal()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>

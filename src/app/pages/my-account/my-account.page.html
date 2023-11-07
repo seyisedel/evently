@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar mode="md">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/settings" icon="chevron-back">
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title mode="ios">{{'models.my' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="ion-text-center ion-margin-top ion-padding-top">
+        <img src="{{profile?.imagePath}}" alt="">
+    </div>
+
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-label>
+            {{profile?.first_name}} {{profile?.last_name}}
+        </ion-label>
+        <ion-buttons slot="end" mode="ios">
+            <ion-button (click)="profileEdit()">
+                <ion-icon slot="icon-only" src="../../../assets/svg_icon/pencil2.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-label>
+            <p>{{'models.email' | translate}}</p>
+        </ion-label>
+        <ion-text slot="end">{{profile?.email}}</ion-text>
+    </ion-item>
+
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-label>
+            <p>{{'models.contact' | translate}}</p>
+        </ion-label>
+        <ion-text slot="end" *ngIf="profile?.phone !== null">{{profile?.phone}}</ion-text>
+        <ion-text slot="end" *ngIf="profile?.phone == null">{{'models.adpp' | translate }}</ion-text>
+    </ion-item>
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-label>
+            <p>{{'models.bio' | translate}}</p>
+            <ion-text slot="end" *ngIf="profile?.bio !== null">{{profile?.bio}}</ion-text>
+            <ion-text slot="end" *ngIf="profile?.bio == null">{{'models.addBio' | translate}}</ion-text>
+        </ion-label>
+    </ion-item>
+</ion-content>
